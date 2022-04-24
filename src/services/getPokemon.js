@@ -1,4 +1,4 @@
-const baseUrl = "http://pokeapi.co/api/v2";
+const baseUrl = "https://pokeapi.co/api/v2/{endpoint}/";
 const query = {
   pokemon: "pokemon",
 };
