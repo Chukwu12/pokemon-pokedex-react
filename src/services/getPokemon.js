@@ -1,6 +1,9 @@
 const baseUrl = "https://pokeapi.co/api/v2/";
 const query = {
   pokemon: "pokemon",
+  type: "type",
+  ability: "ability",
+  stat: 'stat',
 };
 
 export async function fetchPokemon(pokemon) {
