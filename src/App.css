@@ -28,17 +28,9 @@
   color: #61dafb;
 }
 
-.container{
-  display: flex;
-  justify-content: center;
-  height: 500px;
-  align-items: center;
-  background: cornsilk;
-  background-image: url(/pokemonImage.png);
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
+/* .container{
+ 
+} */
 
 
 @keyframes App-logo-spin {
