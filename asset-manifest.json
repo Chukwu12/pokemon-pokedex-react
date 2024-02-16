@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Chukwu12/pokemon-pokedex-react.git/static/css/main.0b4e74b4.css",
+    "main.js": "/Chukwu12/pokemon-pokedex-react.git/static/js/main.0dc96f1f.js",
+    "index.html": "/Chukwu12/pokemon-pokedex-react.git/index.html",
+    "main.0b4e74b4.css.map": "/Chukwu12/pokemon-pokedex-react.git/static/css/main.0b4e74b4.css.map",
+    "main.0dc96f1f.js.map": "/Chukwu12/pokemon-pokedex-react.git/static/js/main.0dc96f1f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0b4e74b4.css",
+    "static/js/main.0dc96f1f.js"
+  ]
+}
