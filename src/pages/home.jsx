@@ -6,6 +6,7 @@ import {
   fetchReleasedPokemonNames,
   fetchTypeEffectiveness,
 } from "../services/getPokemon";
+import { fetchSpeciesAndEvolutionChainId } from "../services/fetchSpeciesAndEvolutionChainId";
 import PokemonData from "../components/PokemonData";
 import ComparePokemon from "../components/ComparePokemon";
 import { Spinner, Alert } from "react-bootstrap";
@@ -14,6 +15,7 @@ export default function HomePage() {
   const [mode, setMode] = React.useState("single");
   const [pokemon, setPokemon] = React.useState();
   const [comparePokemon, setComparePokemon] = React.useState({ left: undefined, right: undefined });
+  const [evolutionChainId, setEvolutionChainId] = React.useState(null);
   const [loading, setLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
@@ -91,6 +93,11 @@ export default function HomePage() {
       }
 
       const results = await response.json();
+
+      // Fetch species to get evolution chain ID
+      const { evolutionChainId } = await fetchSpeciesAndEvolutionChainId(results.name);
+      setEvolutionChainId(evolutionChainId);
+
       setPokemon(results);
       setComparePokemon({ left: undefined, right: undefined });
       setLoading(false);
@@ -99,6 +106,7 @@ export default function HomePage() {
       setLoading(false);
       setError(true);
       setPokemon(undefined);
+      setEvolutionChainId(null);
       setErrorMsg("Pokemon not found.");
     }
   };
@@ -193,6 +201,8 @@ export default function HomePage() {
           types={pokemon.types}
           isReleasedInGo={releasedPokemonNames.has(pokemon.name?.toLowerCase())}
           showReleaseStatus={releasedPokemonNames.size > 0}
+          evolutionChainId={evolutionChainId}
+          onEvolutionStageClick={getPokemon}
         />
       ) : null}
 

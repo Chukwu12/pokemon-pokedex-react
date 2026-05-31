@@ -1,4 +1,5 @@
 import React from 'react';
+import EvolutionChain from './EvolutionChain';
 import { Container, Row, Col, Card, ProgressBar } from 'react-bootstrap';
 
 const TYPE_COLORS = {
@@ -84,6 +85,17 @@ export default function PokemonData(props) {
                   </span>
                 </div>
               ))}
+
+              {/* Evolution Chain Section */}
+              {props.evolutionChainId && (
+                <div className="mt-4">
+                  <EvolutionChain
+                    chainId={props.evolutionChainId}
+                    currentPokemon={props.name.toLowerCase()}
+                    onStageClick={props.onEvolutionStageClick}
+                  />
+                </div>
+              )}
             </Card.Body>
           </Card>
         </Col>

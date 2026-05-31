@@ -1,3 +1,28 @@
+// Fetch evolution chain by ID
+export async function fetchEvolutionChain(chainId) {
+  try {
+    const response = await fetch(`${POKE_API_BASE_URL}/evolution-chain/${chainId}/`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch evolution chain');
+    }
+    return response.json();
+  } catch (error) {
+    return null;
+  }
+}
+
+// Fetch evolution trigger by ID or name
+export async function fetchEvolutionTrigger(idOrName) {
+  try {
+    const response = await fetch(`${POKE_API_BASE_URL}/evolution-trigger/${idOrName}/`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch evolution trigger');
+    }
+    return response.json();
+  } catch (error) {
+    return null;
+  }
+}
 
 const POKE_API_BASE_URL = 'https://pokeapi.co/api/v2';
 const RAPID_API_BASE_URL = 'https://pokemon-go1.p.rapidapi.com';
